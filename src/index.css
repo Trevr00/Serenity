@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans bg-cream text-charcoal-800 antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-3 bg-gold-500 text-white font-sans font-medium tracking-wider uppercase text-sm transition-all duration-300 hover:bg-gold-600 hover:shadow-lg active:scale-95;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-3 border border-gold-500 text-gold-500 font-sans font-medium tracking-wider uppercase text-sm transition-all duration-300 hover:bg-gold-500 hover:text-white active:scale-95;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-serif font-light text-charcoal-800 leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-sm tracking-widest uppercase text-gold-500 font-sans font-semibold mb-3;
+  }
+
+  .card-shadow {
+    @apply shadow-[0_4px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.14)] transition-shadow duration-300;
+  }
+
+  .divider-gold {
+    @apply w-16 h-px bg-gold-400 mx-auto my-6;
+  }
+
+  .divider-gold-left {
+    @apply w-16 h-px bg-gold-400 my-6;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #faf7f2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c08d45;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9a7c2a;
+}
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms, transform 400ms;
+}
