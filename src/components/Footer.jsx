@@ -88,11 +88,11 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-sm text-beige-300/70">
                 <FiMapPin className="mt-0.5 text-gold-400 shrink-0" size={16} />
-                14 Tranquil Avenue, Victoria Island, Lagos, Nigeria
+                Balozi Road, Off Namanga road, towards Leleshwa Inn, Nairobi, Kenya
               </li>
               <li className="flex items-center gap-3 text-sm text-beige-300/70">
                 <FiPhone className="text-gold-400 shrink-0" size={16} />
-                +234 800 SERENITY
+                0799 898685
               </li>
               <li className="flex items-center gap-3 text-sm text-beige-300/70">
                 <FiMail className="text-gold-400 shrink-0" size={16} />

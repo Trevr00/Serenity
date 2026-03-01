@@ -40,25 +40,22 @@ const values = [
 
 const testimonials = [
   {
-    name: 'Adaeze O.',
-    title: 'Loyal Member since 2022',
+    name: 'Njeri Bulogosi',
+    title: 'Regular Visitor',
     quote:
-      'Serenity is my weekly reset button. The massage therapists are world-class and the ambiance is absolutely magical.',
-    avatar: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&q=80',
+      'After every visit to Serenity, my skin feels incredibly refreshed and looks visibly radiant. The facials and massages have truly transformed my complexion. I always leave feeling like a completely new person.',
   },
   {
-    name: 'Chukwuemeka B.',
-    title: 'First-time Guest',
+    name: 'Jackson Alvin',
+    title: 'Refresh Package Regular',
     quote:
-      'I came in for a shave and left having booked a full package. The attention to detail is unmatched. My new favourite spot in Lagos.',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&q=80',
+      'The grooming services here are exceptional. My skin feels so rejuvenated and looks so much clearer after their treatments. Coming to Serenity is now my go-to for that glowing, revitalized feeling.',
   },
   {
-    name: 'Temi A.',
-    title: 'Restore Package Client',
+    name: 'Bertha Muthoni',
+    title: 'Restore Package Devotee',
     quote:
-      'The Restore package is exactly what the name promises. I came out feeling like a completely new person after a stressful quarter.',
-    avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=80&q=80',
+      'I walked in feeling exhausted and walked out completely renewed. My skin has never looked better, and the whole experience left me feeling so refreshed and glowing. Serenity is my ultimate wellness sanctuary in Nairobi.',
   },
 ]
 
@@ -70,7 +67,7 @@ export default function Home() {
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
         style={{
           backgroundImage:
-            'url(https://images.unsplash.com/photo-1600334129128-685c5582fd35?w=1600&q=80)',
+            'url(https://images.unsplash.com/photo-1743286159555-ea765c1bc5e6?w=1600&q=80)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -297,11 +294,6 @@ export default function Home() {
                   {t.quote}
                 </p>
                 <div className="flex items-center gap-3 border-t border-beige-100 pt-5">
-                  <img
-                    src={t.avatar}
-                    alt={t.name}
-                    className="w-11 h-11 rounded-full object-cover"
-                  />
                   <div>
                     <p className="font-sans font-semibold text-sm text-charcoal-800">{t.name}</p>
                     <p className="text-xs text-gold-500">{t.title}</p>
@@ -317,7 +309,7 @@ export default function Home() {
       <section
         className="relative py-28 overflow-hidden"
         style={{
-          backgroundImage: 'url(https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1600&q=80)',
+          backgroundImage: 'url(https://images.unsplash.com/photo-1678988227223-45112511eca2?w=1600&q=80)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

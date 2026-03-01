@@ -9,7 +9,7 @@ export const services = [
     image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=80',
     icon: '✂',
     duration: '45 min',
-    priceFrom: 2500,
+    priceFrom: 1000,
     features: [
       'Hot towel preparation',
       'Premium shaving cream',
@@ -18,6 +18,7 @@ export const services = [
       'Complimentary beard trim',
     ],
     packages: [
+      { name: 'Express Shave', price: 1000, duration: '20 min' },
       { name: 'Classic Shave', price: 2500, duration: '30 min' },
       { name: 'Luxury Hot Towel Shave', price: 4500, duration: '45 min' },
       { name: 'Gentleman\'s Full Grooming', price: 7500, duration: '75 min' },
@@ -30,7 +31,7 @@ export const services = [
     tagline: 'Melt Away Every Tension',
     description:
       'Our therapeutic full-body massages combine ancient healing traditions with modern techniques. Expert therapists work to release deep muscular tension, improve circulation, and restore balance to body and mind.',
-    image: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1677682693087-711e24efaa69?w=800&q=80',
     icon: '♦',
     duration: '60–90 min',
     priceFrom: 8000,
@@ -81,7 +82,7 @@ export const services = [
     image: 'https://images.unsplash.com/photo-1583416750470-965b2707b355?w=800&q=80',
     icon: '◉',
     duration: '30–60 min',
-    priceFrom: 3500,
+    priceFrom: 1000,
     features: [
       'Authentic Finnish dry heat',
       'Temperature-controlled environment',
@@ -90,7 +91,7 @@ export const services = [
       'Eucalyptus aromatherapy',
     ],
     packages: [
-      { name: 'Express Session', price: 3500, duration: '30 min' },
+      { name: 'Express Session', price: 1000, duration: '20 min' },
       { name: 'Standard Session', price: 5500, duration: '60 min' },
       { name: 'Sauna + Massage Combo', price: 14000, duration: '2 hrs' },
     ],
@@ -105,7 +106,7 @@ export const services = [
     image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80',
     icon: '☁',
     duration: '20–45 min',
-    priceFrom: 3000,
+    priceFrom: 1000,
     features: [
       'Eucalyptus & mint infused steam',
       'Deep skin hydration',
@@ -114,7 +115,7 @@ export const services = [
       'Chilled face towel service',
     ],
     packages: [
-      { name: 'Express Steam', price: 3000, duration: '20 min' },
+      { name: 'Express Steam', price: 1000, duration: '20 min' },
       { name: 'Full Steam Session', price: 5000, duration: '45 min' },
       { name: 'Steam + Body Scrub', price: 10000, duration: '75 min' },
     ],
@@ -129,7 +130,7 @@ export const services = [
     image: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&q=80',
     icon: '✦',
     duration: '45–90 min',
-    priceFrom: 4000,
+    priceFrom: 1500,
     features: [
       'Premium nail polishes & gels',
       'Cuticle care & conditioning',
@@ -138,6 +139,8 @@ export const services = [
       'Relaxing foot & hand massage',
     ],
     packages: [
+      { name: 'Express Manicure', price: 1500, duration: '30 min' },
+      { name: 'Express Pedicure', price: 1500, duration: '30 min' },
       { name: 'Classic Manicure', price: 4000, duration: '45 min' },
       { name: 'Classic Pedicure', price: 5000, duration: '60 min' },
       { name: 'Mani + Pedi Combo', price: 8500, duration: '90 min' },

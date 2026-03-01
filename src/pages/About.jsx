@@ -51,7 +51,7 @@ export default function About() {
       <PageHero
         title="About Serenity"
         subtitle="Our Story"
-        image="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1400&q=80"
+        image="https://images.unsplash.com/photo-1669357657874-34944fa0be68?w=1400&q=80"
       />
 
       {/* Mission */}

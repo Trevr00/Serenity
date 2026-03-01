@@ -36,7 +36,7 @@ export default function Contact() {
       <PageHero
         title="Contact Us"
         subtitle="Get in Touch"
-        image="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=1400&q=80"
+        image="https://images.unsplash.com/photo-1669357657874-34944fa0be68?w=1400&q=80"
       />
 
       {/* Contact Grid */}
@@ -58,8 +58,8 @@ export default function Contact() {
 
             <div className="space-y-6">
               {[
-                { icon: FiMapPin, label: 'Location', value: '14 Tranquil Avenue, Victoria Island, Lagos, Nigeria' },
-                { icon: FiPhone, label: 'Phone', value: '+234 800 SERENITY' },
+                { icon: FiMapPin, label: 'Location', value: 'Balozi Road, Off Namanga road, towards Leleshwa Inn, Nairobi, Kenya' },
+                { icon: FiPhone, label: 'Phone', value: '0799 898685' },
                 { icon: FiMail, label: 'Email', value: 'hello@serenitywellness.com' },
                 { icon: FiClock, label: 'Hours', value: 'Mon–Fri 7am–9pm | Sat–Sun 8am–8pm' },
               ].map((item) => (
