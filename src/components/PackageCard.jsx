@@ -7,19 +7,19 @@ const colorMap = {
     accent: 'text-sage-600',
     border: 'border-sage-300',
     badge: 'bg-sage-100 text-sage-700',
-    btn: 'border-sage-600 text-sage-600 hover:bg-sage-600 hover:text-white',
+    btn: 'border-sage-600 text-sage-600 hover:bg-sage-600 hover:text-white rounded-full',
   },
   gold: {
     accent: 'text-gold-500',
     border: 'border-gold-400',
     badge: 'bg-gold-300/30 text-gold-600',
-    btn: 'border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white',
+    btn: 'border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white rounded-full',
   },
   charcoal: {
     accent: 'text-charcoal-700',
     border: 'border-charcoal-700',
     badge: 'bg-charcoal-700 text-white',
-    btn: 'border-charcoal-700 text-charcoal-700 hover:bg-charcoal-700 hover:text-white',
+    btn: 'border-charcoal-700 text-charcoal-700 hover:bg-charcoal-700 hover:text-white rounded-full',
   },
 }
 
@@ -32,12 +32,12 @@ export default function PackageCard({ pkg, index = 0 }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className={`relative bg-white border-2 ${colors.border} p-8 flex flex-col card-shadow ${
+      className={`relative bg-white border-2 ${colors.border} p-8 flex flex-col card-shadow overflow-hidden ${
         pkg.popular ? 'scale-105' : ''
       }`}
     >
       {pkg.popular && (
-        <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 bg-gold-500 text-white text-xs tracking-widest uppercase font-sans">
+        <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-5 py-1 bg-gold-500 text-white text-xs tracking-widest uppercase font-sans rounded-full">
           Most Popular
         </span>
       )}

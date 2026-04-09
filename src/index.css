@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* ── Serenity Rose (default theme) ─────────────────────────── */
+  --tw-gold-300: 247 197 212;
+  --tw-gold-400: 238 154 181;
+  --tw-gold-500: 222 109 147;
+  --tw-gold-600: 196 78 120;
+  --tw-charcoal-700: 62 36 56;
+  --tw-charcoal-800: 46 22 41;
+  --tw-charcoal-900: 30 10 26;
+  --tw-cream: 253 247 250;
+
+  /* ── Named semantic vars (for custom components) ───────────── */
+  --color-primary:    222 109 147;
+  --color-secondary:  165 145 219;
+  --color-bg:         253 247 250;
+  --color-accent:     247 197 212;
+  --color-text:       46 22 41;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -18,11 +37,21 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-8 py-3 bg-gold-500 text-white font-sans font-medium tracking-wider uppercase text-sm transition-all duration-300 hover:bg-gold-600 hover:shadow-lg active:scale-95;
+    @apply inline-flex items-center justify-center px-8 py-3 bg-gold-500 text-white font-sans font-medium tracking-wider uppercase text-sm transition-all duration-300 hover:bg-gold-600 hover:shadow-lg active:scale-95 rounded-full;
   }
 
   .btn-outline {
-    @apply inline-flex items-center justify-center px-8 py-3 border border-gold-500 text-gold-500 font-sans font-medium tracking-wider uppercase text-sm transition-all duration-300 hover:bg-gold-500 hover:text-white active:scale-95;
+    @apply inline-flex items-center justify-center px-8 py-3 border border-gold-500 text-gold-500 font-sans font-medium tracking-wider uppercase text-sm transition-all duration-300 hover:bg-gold-500 hover:text-white active:scale-95 rounded-full;
+  }
+
+  .btn-glow {
+    @apply inline-flex items-center justify-center px-8 py-3 text-white font-sans font-medium tracking-wider uppercase text-sm rounded-full transition-all duration-300 active:scale-95;
+    background: linear-gradient(135deg, rgb(var(--tw-gold-500)) 0%, rgb(var(--tw-gold-600)) 100%);
+  }
+
+  .btn-glow:hover {
+    box-shadow: 0 10px 40px rgb(var(--tw-gold-500) / 0.5), 0 4px 16px rgb(var(--tw-gold-600) / 0.4);
+    transform: translateY(-2px) scale(1.03);
   }
 
   .section-title {
@@ -30,19 +59,32 @@
   }
 
   .section-subtitle {
-    @apply text-sm tracking-widest uppercase text-gold-500 font-sans font-semibold mb-3;
+    @apply text-2xl font-script text-gold-500 mb-2;
   }
 
   .card-shadow {
-    @apply shadow-[0_4px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_8px_40px_rgba(0,0,0,0.14)] transition-shadow duration-300;
+    @apply shadow-[0_4px_30px_rgba(222,109,147,0.1)] hover:shadow-[0_8px_40px_rgba(222,109,147,0.22)] transition-shadow duration-300 rounded-2xl;
+  }
+
+  .glass-card {
+    @apply rounded-2xl;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 8px 40px rgba(222, 109, 147, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.7);
   }
 
   .divider-gold {
-    @apply w-16 h-px bg-gold-400 mx-auto my-6;
+    @apply w-20 h-0.5 bg-gradient-to-r from-transparent via-gold-400 to-transparent mx-auto my-6;
   }
 
   .divider-gold-left {
-    @apply w-16 h-px bg-gold-400 my-6;
+    @apply w-20 h-0.5 bg-gradient-to-r from-gold-400 to-transparent my-6;
+  }
+
+  .ornament-divider {
+    @apply flex items-center justify-center gap-3 my-5;
   }
 }
 
@@ -52,16 +94,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #faf7f2;
+  background: #fdf7fa;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c08d45;
+  background: #de6d93;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9a7c2a;
+  background: #c44e78;
 }
 
 /* Page transition */
@@ -74,4 +116,12 @@
   opacity: 1;
   transform: translateY(0);
   transition: opacity 400ms, transform 400ms;
+}
+
+/* Gradient heading */
+.gradient-heading {
+  background: linear-gradient(135deg, #de6d93 0%, #8970cb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

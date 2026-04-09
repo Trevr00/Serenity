@@ -12,14 +12,18 @@ export default function ServiceCard({ service, index = 0 }) {
       className="group relative overflow-hidden bg-white card-shadow"
     >
       {/* Image */}
-      <div className="relative h-56 overflow-hidden">
+      <div className="relative h-60 overflow-hidden">
         <img
           src={service.image}
           alt={service.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-charcoal-900/30 group-hover:bg-charcoal-900/10 transition-colors duration-500" />
-        <span className="absolute top-4 right-4 text-2xl text-white/80">{service.icon}</span>
+        {/* Gradient overlay — fades in from bottom */}
+        <div className="absolute inset-0 bg-gradient-to-t from-charcoal-900/55 via-charcoal-900/15 to-transparent group-hover:from-charcoal-900/20 group-hover:via-transparent transition-all duration-500" />
+        {/* Frosted icon badge */}
+        <span className="absolute top-3 right-3 w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center text-lg text-white/90">
+          {service.icon}
+        </span>
       </div>
 
       {/* Content */}
@@ -29,9 +33,9 @@ export default function ServiceCard({ service, index = 0 }) {
         <p className="text-sm text-charcoal-700/70 leading-relaxed mb-4 line-clamp-3">
           {service.description}
         </p>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between border-t border-beige-100 pt-4">
           <span className="text-sm text-charcoal-700">
-            From <strong className="text-gold-500 font-medium">KSh {service.priceFrom.toLocaleString()}</strong>
+            From <strong className="text-gold-500 font-semibold">KSh {service.priceFrom.toLocaleString()}</strong>
           </span>
           <Link
             to={`/services/${service.slug}`}

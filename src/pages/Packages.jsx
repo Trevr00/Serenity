@@ -1,9 +1,22 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { FiCheck } from 'react-icons/fi'
+import { useEffect, useState } from 'react'
 import PageHero from '../components/PageHero'
 import PackageCard from '../components/PackageCard'
-import { packages } from '../data/packages'
+import { packages as staticPackages } from '../data/packages'
+import api from '../api'
+
+const adaptPackage = (pkg, i) => ({
+  id: pkg._id,
+  name: pkg.name,
+  tagline: pkg.tagline || '',
+  price: pkg.price,
+  duration: pkg.duration || '',
+  popular: pkg.isPopular || false,
+  color: ['bronze', 'silver', 'gold'][i % 3],
+  includes: pkg.features || [],
+})
 
 const faqs = [
   {
@@ -25,6 +38,14 @@ const faqs = [
 ]
 
 export default function Packages() {
+  const [packages, setPackages] = useState(staticPackages)
+
+  useEffect(() => {
+    api.get('/packages')
+      .then(({ data }) => { if (data.packages?.length) setPackages(data.packages.map(adaptPackage)) })
+      .catch(() => {})
+  }, [])
+
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4 }}>
       <PageHero
