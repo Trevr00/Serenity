@@ -6,6 +6,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-charcoal-900 text-beige-200">
+      {/* Gradient accent top */}
+      <div className="h-px bg-gradient-to-r from-transparent via-gold-400/50 to-transparent" />
       {/* Top band */}
       <div className="border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -24,7 +26,7 @@ export default function Footer() {
                 <a
                   key={i}
                   href="#"
-                  className="w-9 h-9 border border-white/20 flex items-center justify-center text-beige-300/70 hover:border-gold-400 hover:text-gold-400 transition-colors duration-300"
+                  className="w-9 h-9 border border-white/20 rounded-full flex items-center justify-center text-beige-300/70 hover:border-gold-400 hover:text-gold-400 hover:bg-gold-400/10 hover:shadow-[0_0_12px_rgba(222,109,147,0.4)] transition-all duration-300"
                   aria-label="Social link"
                 >
                   <Icon size={16} />

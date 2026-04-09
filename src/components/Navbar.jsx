@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { FiMenu, FiX, FiChevronDown } from 'react-icons/fi'
+import { FiMenu, FiX, FiChevronDown, FiUser, FiLogOut, FiSettings } from 'react-icons/fi'
+import { useAuth } from '../context/AuthContext'
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -25,11 +26,18 @@ const navLinks = [
 ]
 
 export default function Navbar() {
+  const { user, logout } = useAuth()
+  const navigate = useNavigate()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
   const location = useLocation()
+
+  const handleLogout = () => {
+    logout()
+    navigate('/')
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -53,6 +61,8 @@ export default function Navbar() {
           : 'bg-transparent'
       }`}
     >
+      {/* Gradient accent line */}
+      <div className="h-[2px] bg-gradient-to-r from-transparent via-gold-400/60 to-transparent" />
       <nav className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
         {/* Logo */}
         <Link to="/" className="flex flex-col leading-none group">
@@ -153,14 +163,49 @@ export default function Navbar() {
               </li>
             )
           )}
-          <li>
-            <Link
-              to="/book"
-              className="ml-2 px-6 py-2.5 bg-red-600 text-white text-xs tracking-widest uppercase font-sans font-medium transition-all duration-300 hover:bg-gold-600 hover:shadow-md"
-            >
-              Book Now
-            </Link>
-          </li>
+          {user ? (
+            <li className="flex items-center gap-3 ml-2">
+              <span className={`flex items-center gap-1.5 text-xs tracking-widest uppercase font-sans ${scrolled || !isHome ? 'text-charcoal-700' : 'text-white/80'}`}>
+                <FiUser size={13} />
+                {user.name.split(' ')[0]}
+              </span>
+              {user.role === 'admin' && (
+                <Link
+                  to="/admin"
+                  className={`flex items-center gap-1.5 text-xs tracking-widest uppercase font-sans transition-colors ${scrolled || !isHome ? 'text-charcoal-600 hover:text-gold-500' : 'text-white/80 hover:text-white'}`}
+                  title="Admin Dashboard"
+                >
+                  <FiSettings size={14} />
+                  Admin
+                </Link>
+              )}
+              <Link to="/book" className="px-5 py-2.5 bg-gold-500 text-white text-xs tracking-widest uppercase font-sans font-medium transition-all duration-300 hover:bg-gold-600 hover:shadow-md rounded-full">
+                Book Now
+              </Link>
+              <button
+                onClick={handleLogout}
+                className={`p-1.5 transition-colors ${scrolled || !isHome ? 'text-charcoal-500 hover:text-charcoal-800' : 'text-white/70 hover:text-white'}`}
+                title="Sign out"
+              >
+                <FiLogOut size={16} />
+              </button>
+            </li>
+          ) : (
+            <li className="flex items-center gap-3 ml-2">
+              <Link
+                to="/login"
+                className={`text-xs tracking-widest uppercase font-sans transition-colors ${scrolled || !isHome ? 'text-charcoal-700 hover:text-gold-500' : 'text-white/90 hover:text-white'}`}
+              >
+                Sign In
+              </Link>
+              <Link
+                to="/book"
+                className="px-6 py-2.5 bg-gold-500 text-white text-xs tracking-widest uppercase font-sans font-medium transition-all duration-300 hover:bg-gold-600 hover:shadow-md rounded-full"
+              >
+                Book Now
+              </Link>
+            </li>
+          )}
         </ul>
 
         {/* Mobile hamburger */}
@@ -256,11 +301,44 @@ export default function Navbar() {
               <li className="pt-2">
                 <Link
                   to="/book"
-                  className="block text-center py-3 bg-gold-500 text-white text-xs tracking-widest uppercase font-sans"
+                  className="block text-center py-3 bg-gold-500 text-white text-xs tracking-widest uppercase font-sans rounded-full"
                 >
                   Book Now
                 </Link>
               </li>
+              {user ? (
+                <>
+                  {user.role === 'admin' && (
+                    <li>
+                      <Link
+                        to="/admin"
+                        className="flex items-center gap-2 py-3 text-sm tracking-widest uppercase font-sans text-gold-500 hover:text-gold-600"
+                      >
+                        <FiSettings size={14} />
+                        Admin Dashboard
+                      </Link>
+                    </li>
+                  )}
+                  <li>
+                    <button
+                      onClick={handleLogout}
+                      className="w-full flex items-center gap-2 py-3 text-sm tracking-widest uppercase font-sans text-charcoal-700 hover:text-gold-500"
+                    >
+                      <FiLogOut size={14} />
+                      Sign Out ({user.name.split(' ')[0]})
+                    </button>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <Link
+                    to="/login"
+                    className="block py-3 text-sm tracking-widest uppercase font-sans text-charcoal-700 hover:text-gold-500"
+                  >
+                    Sign In
+                  </Link>
+                </li>
+              )}
             </ul>
           </motion.div>
         )}
